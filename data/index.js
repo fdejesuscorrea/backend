@@ -1,0 +1,9 @@
+module.exports={
+    user:"BHivQUwm3T",
+    password:"0IH8SpVZOA",
+    dbName:"BHivQUwm3T",
+    connectionConfig:{
+        host:"remotemysql.com",
+        dialect:"mysql"
+    }
+}
