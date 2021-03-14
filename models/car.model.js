@@ -30,7 +30,8 @@ module.exports=(sequelize,type)=>{
             type:type.STRING
         },
         disabled:{
-            type:type.BOOLEAN
+            type:type.BOOLEAN,
+            default:false
         }
     });
 };

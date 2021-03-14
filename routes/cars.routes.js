@@ -94,7 +94,6 @@ router.post("/cars",upload.single("file"),async(req,res)=>{
     const {licensePlate,carBrand,carModel,carDetail,repairDetail} = req.body;
     const repairCost = BillPolicy(carModel);
     const disabled = false;
-    console.log(licensePlate,carBrand,carModel,carDetail,repairDetail);
     await Car.create({licensePlate,carBrand,carModel,carDetail,repairDetail,carImage,repairCost,disabled});
     return res.status(200).json({message:"tobien pai creao"}); 
 });

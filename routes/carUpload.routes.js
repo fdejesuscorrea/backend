@@ -20,8 +20,10 @@ let storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 router.post("/upload", VerifyToken, upload.single("excel"), async(req, res) => {
+  
   await Car.update({disabled:true},{where:{}});
-  xlsxFile(CWD + "/excel/excel.xlsx")
+  console.log("justo ahora se va a tratar de abrir el archivo");
+  xlsxFile(path.join(__dirname, "/../excel/excel.xlsx"))
     .then((rows) => {
       rows.slice(1).forEach(async (row) => {
         const licensePlate = row[0];
@@ -69,16 +71,14 @@ router.post("/upload", VerifyToken, upload.single("excel"), async(req, res) => {
         }
       });
       try{
-        fs.unlinkSync(CWD + "/excel/excel.xlsx");
+        fs.unlinkSync(path.join(__dirname+ "/../excel/excel.xlsx"));
       }catch{
 
       }
       return res.status(200).json({message:"cargao"});
 
     })
-    .catch(() => {
-      return res.status(401);
-    });
+    .catch(console.log);
     
 }
 

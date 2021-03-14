@@ -13,7 +13,7 @@ server.use(express.json());
 
 server.use("/api",SignRouter);
 server.use("/api",CarsRouter);
-server.use("/api/",CarUpRouter);
+server.use("/api",CarUpRouter);
 server.listen(PORT,()=>{
     console.log(`application running on port ${PORT}`);
 });
