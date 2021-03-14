@@ -14,6 +14,6 @@ server.use(express.json());
 server.use("/api",SignRouter);
 server.use("/api",CarsRouter);
 server.use("/api",CarUpRouter);
-server.listen(PORT,()=>{
+server.listen(PORT,"0.0.0.0",()=>{
     console.log(`application running on port ${PORT}`);
 });
